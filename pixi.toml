@@ -9,11 +9,11 @@ version = "0.1.0"
 
 [dependencies]
 python = "3.12.*"
-pandas = "*"
 matplotlib-base = "*"
-seaborn = "*"
-pyarrow = ">=12"
+# seaborn = "*"
+# pyarrow = ">=12"
+# fastparquet = "*"
+# pandas = "*"
 awscli = "*"
-fastparquet = "*"
 polars = ">=1.39.3,<2"
 
