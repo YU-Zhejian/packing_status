@@ -1,5 +1,4 @@
 import glob
-import json
 
 import pandas as pd
 import pyarrow as pa
@@ -24,9 +23,10 @@ if __name__ == "__main__":
         df_sel = df[["time", "data_source", "pkg_name", "counts"]]
         # Convert data_source to string to avoid issues with mixed types
         df_sel.loc[:, "data_source"] = df_sel.loc[:, "data_source"].astype(str)
+        df_sel.loc[:, "pkg_name"] = df_sel.loc[:, "pkg_name"].astype(str)
         df_sel = df_sel.query("data_source == 'conda-forge' or data_source == 'bioconda'")
         # Sum the counts for each (time, data_source, pkg_name) triplet
-        df_sel = df_sel.groupby(["time", "data_source", "pkg_name"], as_index=False, observed=False).sum("counts")
+        df_sel = df_sel.groupby(["time", "data_source", "pkg_name"], as_index=False, observed=False).sum(numeric_only=True)
         odfs.append(df_sel)
         print("Done")
     if odfs:

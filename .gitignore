@@ -2,3 +2,6 @@ monthly/
 *.png
 *.pdf
 *.parquet
+# pixi environments
+.pixi/*
+!.pixi/config.toml

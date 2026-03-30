@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 pkgs_to_highlight = [
     "conda-forge::numpy",
     "conda-forge::pandas",
+    "conda-forge::polars",
+    "conda-forge::pyspark",
     "bioconda::samtools",
     "bioconda::art",
     "bioconda::art_modern",
